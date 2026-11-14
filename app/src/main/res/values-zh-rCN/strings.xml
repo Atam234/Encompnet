@@ -852,6 +852,8 @@
     <string name="call_settings_full_screen_off">来电无法在锁屏上响铃，只会以通知形式出现。请为 Encompnet 开启“允许全屏通知”。</string>
     <string name="call_settings_prefer_mesh_title">优先使用 Mesh 通话</string>
     <string name="call_settings_prefer_mesh_subtitle">聊天中的通话按钮会发起 Mesh 通话。实时通话移至聊天的菜单中。</string>
+    <string name="call_settings_keep_bursts_title">保存我在 Mesh 通话中说的话</string>
+    <string name="call_settings_keep_bursts_subtitle">你在 Mesh 通话中每次说的话，都会在通话结束后作为语音消息发到聊天里。只保存你自己的声音。</string>
     <string name="call_settings_transcripts_title">转写和字幕</string>
     <string name="call_settings_transcripts_subtitle">在这部手机上将英语语音转为文字：对讲内容在播放时转写，实时通话在你开启 CC 后转写，语音消息在你点按“转写”时转写。这些文字绝不会发送出去。</string>
     <string name="call_settings_speech_model_title">语音模型</string>

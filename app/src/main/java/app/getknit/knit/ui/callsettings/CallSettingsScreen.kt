@@ -87,6 +87,7 @@ fun CallSettingsScreen(
     val transcripts by viewModel.transcripts.collectAsStateWithLifecycle()
     val intake by viewModel.intake.collectAsStateWithLifecycle()
     val preferMesh by viewModel.preferMesh.collectAsStateWithLifecycle()
+    val keepBursts by viewModel.keepBursts.collectAsStateWithLifecycle()
     val context = LocalContext.current
     // The route exists only where calls are wired (`CALL_SETTINGS_WIRED` is `CALLS_WIRED`); re-read on every resume,
     // since the switch lives on a system page.
@@ -117,6 +118,8 @@ fun CallSettingsScreen(
         choosesFirstCall = viewModel.choosesFirstCall,
         preferMesh = preferMesh,
         onTogglePreferMesh = viewModel::setPreferMesh,
+        keepBursts = keepBursts,
+        onToggleKeepBursts = viewModel::setKeepBursts,
         loaded = loaded,
         snackbarHostState = snackbarHostState,
         onBack = onBack,
@@ -155,6 +158,9 @@ internal fun CallSettingsScreenContent(
     choosesFirstCall: Boolean = live && walkie,
     preferMesh: Boolean = false,
     onTogglePreferMesh: (Boolean) -> Unit = {},
+    // "Save what I say in mesh calls" (ADR 2026-11.tq7q): shown wherever mesh calls are wired.
+    keepBursts: Boolean = false,
+    onToggleKeepBursts: (Boolean) -> Unit = {},
     loaded: Boolean = true,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onToggleRelayAll: (Boolean) -> Unit = {},
@@ -210,6 +216,16 @@ internal fun CallSettingsScreenContent(
                     enabled = preferMesh,
                     onToggle = onTogglePreferMesh,
                     modifier = Modifier.testTag("call_settings_prefer_mesh"),
+                )
+            }
+            if (walkie) {
+                HorizontalDivider()
+                ToggleRow(
+                    title = stringResource(R.string.call_settings_keep_bursts_title),
+                    subtitle = stringResource(R.string.call_settings_keep_bursts_subtitle),
+                    enabled = keepBursts,
+                    onToggle = onToggleKeepBursts,
+                    modifier = Modifier.testTag("call_settings_keep_bursts"),
                 )
             }
             if (live) {

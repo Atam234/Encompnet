@@ -880,6 +880,8 @@
     <string name="call_settings_full_screen_off">As chamadas não podem tocar na tela de bloqueio: elas chegam como notificação. Ative \"Permitir notificações em tela cheia\" para o Encompnet.</string>
     <string name="call_settings_prefer_mesh_title">Preferir chamadas pela mesh</string>
     <string name="call_settings_prefer_mesh_subtitle">O botão de chamada numa conversa faz uma chamada pela mesh. As chamadas ao vivo vão para o menu da conversa.</string>
+    <string name="call_settings_keep_bursts_title">Salvar o que eu falo em chamadas mesh</string>
+    <string name="call_settings_keep_bursts_subtitle">Cada vez que você fala em uma chamada mesh, isso também é enviado ao chat como mensagem de voz quando a chamada termina. Só a sua voz é salva.</string>
     <string name="call_settings_transcripts_title">Transcrições e legendas</string>
     <string name="call_settings_transcripts_subtitle">Transforma a fala em inglês em texto neste celular: trechos de walkie-talkie enquanto tocam, chamadas ao vivo quando você ativa o CC e mensagens de voz quando você toca em Transcrever. O texto nunca é enviado.</string>
     <string name="call_settings_speech_model_title">Modelo de fala</string>

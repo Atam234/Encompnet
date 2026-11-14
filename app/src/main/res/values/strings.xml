@@ -1061,6 +1061,8 @@
     <string name="call_settings_full_screen_off">Calls can\'t ring on the lock screen: they arrive as a notification. Turn on \"Allow full screen notifications\" for Encompnet.</string>
     <string name="call_settings_prefer_mesh_title">Prefer mesh calls</string>
     <string name="call_settings_prefer_mesh_subtitle">The call button in a chat places a mesh call. Live calls move to the chat\'s menu.</string>
+    <string name="call_settings_keep_bursts_title">Save what I say in mesh calls</string>
+    <string name="call_settings_keep_bursts_subtitle">Each time you talk in a mesh call, it\'s also sent to the chat as a voice message when the call ends. Only your own voice is saved.</string>
     <string name="call_settings_transcripts_title">Transcripts and captions</string>
     <string name="call_settings_transcripts_subtitle">Turn English speech into text on this phone: walkie-talkie bursts as they play, live calls when you turn on CC, and voice messages when you tap Transcribe. The text is never sent.</string>
     <string name="call_settings_speech_model_title">Speech model</string>

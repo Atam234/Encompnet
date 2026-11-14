@@ -866,6 +866,8 @@
     <string name="call_settings_full_screen_off">Anrufe können nicht auf dem Sperrbildschirm klingeln und kommen als Benachrichtigung an. Aktiviere „Vollbildbenachrichtigungen zulassen“ für Encompnet.</string>
     <string name="call_settings_prefer_mesh_title">Mesh-Anrufe bevorzugen</string>
     <string name="call_settings_prefer_mesh_subtitle">Die Anruftaste in einem Chat startet einen Mesh-Anruf. Live-Anrufe findest du dann im Menü des Chats.</string>
+    <string name="call_settings_keep_bursts_title">Was ich in Mesh-Anrufen sage, speichern</string>
+    <string name="call_settings_keep_bursts_subtitle">Was du in einem Mesh-Anruf sagst, wird nach dem Anruf zusätzlich als Sprachnachricht in den Chat geschickt. Gespeichert wird nur deine eigene Stimme.</string>
     <string name="call_settings_transcripts_title">Transkripte und Untertitel</string>
     <string name="call_settings_transcripts_subtitle">Wandelt englische Sprache auf diesem Smartphone in Text um: Walkie-Talkie-Durchsagen beim Abspielen, Live-Anrufe, wenn du CC aktivierst, und Sprachnachrichten, wenn du auf „Transkribieren“ tippst. Der Text wird nie gesendet.</string>
     <string name="call_settings_speech_model_title">Sprachmodell</string>

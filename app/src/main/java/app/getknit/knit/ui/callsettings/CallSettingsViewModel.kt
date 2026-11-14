@@ -234,6 +234,15 @@ class CallSettingsViewModel(
         viewModelScope.launch { store.setWalkie(value) }
     }
 
+    /** "Save what I say in mesh calls" (ADR 2026-11.tq7q): what the switch holds, off until the store's first read. */
+    val keepBursts: StateFlow<Boolean> =
+        (preference?.keepBursts ?: flowOf(false)).stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
+
+    fun setKeepBursts(value: Boolean) {
+        val store = preference ?: return
+        viewModelScope.launch { store.setKeepBursts(value) }
+    }
+
     fun setPreferMesh(value: Boolean) {
         val store = preference ?: return
         viewModelScope.launch { store.setPreferMesh(value) }

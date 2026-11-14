@@ -21,6 +21,25 @@ import org.junit.Test
  */
 class VoiceAudioTest {
     @Test
+    fun `an ADTS header the encoder's frames are wrapped in reads back as the same stream`() {
+        // A kept walkie burst (ADR 2026-11.tq7q): bare AAC frames at 16 kHz behind adtsHeader must walk exactly as a
+        // recorded note does, or its bubble shows the wrong length and its waveform the wrong time base.
+        val frames = 47
+        val payload = 61
+        val stream =
+            (0 until frames).fold(ByteArray(0)) { acc, _ -> acc + VoiceAudio.adtsHeader(payload, 16_000)!! + ByteArray(payload) }
+        assertEquals((frames * 1024 * 1000L / 16_000).toInt(), VoiceAudio.durationMs(stream))
+    }
+
+    @Test
+    fun `an ADTS header is refused for a rate outside the table or a frame its length field cannot say`() {
+        assertNull(VoiceAudio.adtsHeader(100, 15_000))
+        assertNull(VoiceAudio.adtsHeader(0, 16_000))
+        assertNull(VoiceAudio.adtsHeader(0x1FFF, 16_000))
+        assertNotNull(VoiceAudio.adtsHeader(0x1FFF - 7, 16_000))
+    }
+
+    @Test
     fun `duration is frames times 1024 samples over the sample rate`() {
         // 216 frames x 1024 samples / 22050 Hz = 10032 ms. Chosen to land off a round number so an
         // implementation that guessed from byte count rather than frames couldn't coincidentally match.

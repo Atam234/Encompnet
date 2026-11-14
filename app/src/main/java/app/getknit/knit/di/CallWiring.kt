@@ -58,6 +58,10 @@ import app.getknit.knit.fieldlog.FieldRecorder
 import app.getknit.knit.identity.Identity
 import app.getknit.knit.mesh.BulkRoute
 import app.getknit.knit.mesh.MeshController
+import app.getknit.knit.call.BurstNoteKeeper
+import app.getknit.knit.data.AttachmentStore
+import app.getknit.knit.data.settings.CallPreferenceStore
+import app.getknit.knit.ui.call.BurstAac
 import app.getknit.knit.mesh.MeshManager
 import app.getknit.knit.mesh.MeshTransport
 import app.getknit.knit.mesh.crypto.AttachmentCrypto
@@ -544,9 +548,28 @@ private fun Module.speechGraph() {
 private fun Module.walkieGraph() {
     single { TalkPlayer(tap = if (STT_WIRED) get<WalkieTranscriber>() else null) }
     single {
+        // The Calls screen's "Save what I say in mesh calls" (ADR 2026-11.tq7q), off by default, read as each burst begins.
+        val on = get<CallPreferenceStore>().keepBursts.stateIn(get<CoroutineScope>(), SharingStarted.Eagerly, false)
+        BurstNoteKeeper(
+            on = { on.value },
+            encode = BurstAac::encode,
+            send = { peerId, note ->
+                when (val ingested = get<AttachmentStore>().ingestVoice(note)) {
+                    is AttachmentStore.IngestResult.Success ->
+                        get<MeshController>().sendChat("", ingested.ingested, recipientId = peerId)
+                    is AttachmentStore.IngestResult.Failed -> false
+                }
+            },
+            scope = get<CoroutineScope>(),
+            dispatcher = Dispatchers.Default.limitedParallelism(1),
+            log = { line -> Log.i(TAG, line) },
+        )
+    }
+    single {
         TalkRecorder(
             get<CoroutineScope>(),
             tap = if (WALKIE_OWN_LINES) get<WalkieTranscriber>().mic else null,
+            keep = get<BurstNoteKeeper>(),
             // The phone's microphone follows the live call's profile, and a dead call path teaches it (C-3.11-5).
             capture = get(),
             muted = { get<CallManager>().state.value?.muted == true },
@@ -573,6 +596,7 @@ private fun Module.walkieGraph() {
             transcript = if (STT_WIRED) get<WalkieTranscriber>() else null,
             field = fieldLog(),
             cue = walkieCue(ToneGeneratorPlayer(get<CoroutineScope>(), log = { line -> Log.w(TAG, line) })),
+            notes = get<BurstNoteKeeper>(),
         )
     }
 }

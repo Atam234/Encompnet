@@ -894,6 +894,8 @@
     <string name="call_settings_full_screen_off">Дзвінки не можуть з’являтися на заблокованому екрані: вони приходять як сповіщення. Увімкніть для Encompnet «Дозволити сповіщення на весь екран».</string>
     <string name="call_settings_prefer_mesh_title">Віддавати перевагу дзвінкам через mesh</string>
     <string name="call_settings_prefer_mesh_subtitle">Кнопка дзвінка в чаті здійснює дзвінок через mesh. Дзвінки наживо переходять у меню чату.</string>
+    <string name="call_settings_keep_bursts_title">Зберігати сказане мною в mesh-дзвінках</string>
+    <string name="call_settings_keep_bursts_subtitle">Усе, що ви кажете в mesh-дзвінку, після його завершення також надсилається в чат голосовим повідомленням. Зберігається лише ваш голос.</string>
     <string name="call_settings_transcripts_title">Розшифровки та субтитри</string>
     <string name="call_settings_transcripts_subtitle">Перетворення англійського мовлення на текст на цьому телефоні: фрагменти рації під час відтворення, дзвінки наживо, коли ви вмикаєте субтитри, і голосові повідомлення, коли ви натискаєте «Розшифрувати». Текст нікуди не надсилається.</string>
     <string name="call_settings_speech_model_title">Модель мовлення</string>

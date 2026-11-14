@@ -1,5 +1,6 @@
 package app.getknit.knit.ui.call
 
+import app.getknit.knit.call.BurstNotes
 import app.getknit.knit.call.CallManager
 import app.getknit.knit.call.CallPhase
 import app.getknit.knit.call.CallState
@@ -124,7 +125,8 @@ internal enum class TalkPath(
  * connected walkie session, a held button streams a burst to the peer as it is spoken — a chunk of Opus packets every
  * [WalkiePolicy.CHUNK_MS] ([TalkWire]), each a sealed `talk` frame nobody custodies — and the peer's bursts play as their chunks
  * land, put back in order by [TalkQueue]. Nothing is stored and nothing reaches a thread: a chunk that is lost is
- * skipped.
+ * skipped. The one exception is the person's own choice ([notes], ADR 2026-11.tq7q): where they keep what they say, each
+ * burst spoken also goes to the peer's thread as a voice message once the session ends.
  *
  * Half duplex at this end: talking holds whatever is playing, and what arrives meanwhile plays after the release.
  *
@@ -158,6 +160,9 @@ internal class WalkieTalk(
     // How a burst spoken ended (C-3.11-5), as a tone on this phone; the call screen adds the haptic. Called with the
     // microphone already stopped, so the tone is never part of the burst.
     private val cue: (TalkCue) -> Unit = {},
+    // Where the person keeps what they say (ADR 2026-11.tq7q): told where each burst spoken begins and ends, and when
+    // the session does. Null keeps nothing.
+    private val notes: BurstNotes? = null,
 ) {
     private val _talk = MutableStateFlow<Talk>(Talk.Idle())
     val talk: StateFlow<Talk> = _talk.asStateFlow()
@@ -187,6 +192,7 @@ internal class WalkieTalk(
     /** The burst being spoken: its bytes on their way to [streamer], and whether its end sends ([kept]) or drops it. */
     private class Outgoing(
         val burst: Int,
+        val peerId: String,
         val ticker: Job,
         val bytes: Channel<ByteArray>,
         val kept: CompletableDeferred<Boolean>,
@@ -278,8 +284,10 @@ internal class WalkieTalk(
             val b = burst
             // Open before the microphone, whose first read comes on its own thread.
             transcript?.begin(b, mine = true)
+            notes?.begin()
             if (!recorder.start(headset()) { bytes.trySend(it) }) {
                 transcript?.abandon(mine = true)
+                notes?.end(call.peerId, keep = false)
                 hold(false)
                 _talk.value = Talk.Idle(Talk.Note.NO_MIC)
                 return@withLock false
@@ -300,7 +308,7 @@ internal class WalkieTalk(
                         delay(TICK_MS)
                     }
                 }
-            outgoing = Outgoing(b, ticker, bytes, kept, streamer)
+            outgoing = Outgoing(b, call.peerId, ticker, bytes, kept, streamer)
             true
         }
 
@@ -326,6 +334,8 @@ internal class WalkieTalk(
         o.bytes.close()
         o.kept.complete(true)
         val note = o.streamer.await()
+        // Kept whether or not a link took it live: the voice message is custodied, and arrives when the mesh can carry it.
+        notes?.end(o.peerId, keep = note != Talk.Note.TOO_SHORT)
         hold(false)
         lastActivity = clock()
         _talk.value = Talk.Idle(if (how == TalkCue.CAPPED && note == Talk.Note.SENT) Talk.Note.CAPPED else note)
@@ -346,6 +356,7 @@ internal class WalkieTalk(
             o.bytes.close()
             o.kept.complete(false)
             o.streamer.await()
+            notes?.end(o.peerId, keep = false)
             hold(false)
         }
         _talk.value = Talk.Idle()
@@ -474,6 +485,7 @@ internal class WalkieTalk(
             }
         } finally {
             route = null
+            notes?.flush()
             field.record(meter.snapshot().fieldEvent())
             // The model's native heap goes with the call, not two idle minutes later.
             transcript?.release()

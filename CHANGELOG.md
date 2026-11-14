@@ -32,6 +32,9 @@ document:
   alert get chimes of their own. Your notification settings carry over, except hiding on the lock screen and
   Priority conversations, which you'll need to set again.
 
+- Settings › Calls has a new switch that saves what you say in a mesh call. When the call ends, each time you
+  talked arrives in the chat as a voice message. It saves only your own voice and is off until you turn it on.
+
 ### Changed
 
 - The app is now called Encompnet. The launcher, notifications and every screen use the new name in all

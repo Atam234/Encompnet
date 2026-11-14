@@ -880,6 +880,8 @@
     <string name="call_settings_full_screen_off">Las llamadas no pueden sonar en la pantalla de bloqueo: llegan como notificación. Activa “Permitir notificaciones de pantalla completa” para Encompnet.</string>
     <string name="call_settings_prefer_mesh_title">Preferir llamadas mesh</string>
     <string name="call_settings_prefer_mesh_subtitle">El botón de llamada de un chat hace una llamada mesh. Las llamadas en vivo pasan al menú del chat.</string>
+    <string name="call_settings_keep_bursts_title">Guardar lo que digo en llamadas mesh</string>
+    <string name="call_settings_keep_bursts_subtitle">Cada vez que hablas en una llamada mesh, también se envía al chat como mensaje de voz cuando termina la llamada. Solo se guarda tu propia voz.</string>
     <string name="call_settings_transcripts_title">Transcripciones y subtítulos</string>
     <string name="call_settings_transcripts_subtitle">Convierte la voz en inglés en texto en este teléfono: las ráfagas de walkie-talkie mientras se reproducen, las llamadas en vivo cuando activas CC y las notas de voz cuando tocas Transcribir. El texto nunca se envía.</string>
     <string name="call_settings_speech_model_title">Modelo de voz</string>

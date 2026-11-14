@@ -41,7 +41,8 @@ import kotlin.math.abs
  * microphone would deliver it, so a trial can send the same known sentence every time (the transcript, C-3.11-9).
  *
  * [tap] sees each read of PCM before it goes to the encoder, so the transcript can write out what was spoken as the
- * model hears it without Opus (C-3.11-9); a tap that throws costs the transcript, never the burst.
+ * model hears it without Opus (C-3.11-9); a tap that throws costs the transcript, never the burst. [keep] sees the same
+ * reads, for the voice note a kept burst becomes (ADR 2026-11.tq7q).
  *
  * [capture] is the phone's call-microphone verdict (ADR 2026-10.kw29): its profile picks the phone's source, and a burst
  * on the call path that hands only zeros teaches it the fallback, unless [muted]. Without one the phone's microphone
@@ -50,6 +51,8 @@ import kotlin.math.abs
 internal class TalkRecorder(
     private val scope: CoroutineScope,
     private val tap: TalkPcmTap? = null,
+    // The burst's audio for a voice note of it, where the person keeps their bursts (ADR 2026-11.tq7q).
+    private val keep: TalkPcmTap? = null,
     private val capture: CaptureHealth? = null,
     private val muted: () -> Boolean = { false },
 ) {
@@ -237,9 +240,19 @@ internal class TalkRecorder(
         pcm: ByteArray,
         size: Int,
     ) {
-        val t = tap ?: return
-        runCatching { t.pcm(ByteBuffer.wrap(pcm, 0, size).order(ByteOrder.LITTLE_ENDIAN), WalkiePolicy.SAMPLE_RATE, 1) }
-            .onFailure { Log.w(TAG, "walkie transcript mic tap failed: ${it.javaClass.simpleName}") }
+        tap?.let { hand(it, pcm, size, "transcript mic") }
+        keep?.let { hand(it, pcm, size, "kept burst") }
+    }
+
+    // Each tap gets its own view of the read, and one that throws costs only itself.
+    private fun hand(
+        to: TalkPcmTap,
+        pcm: ByteArray,
+        size: Int,
+        what: String,
+    ) {
+        runCatching { to.pcm(ByteBuffer.wrap(pcm, 0, size).order(ByteOrder.LITTLE_ENDIAN), WalkiePolicy.SAMPLE_RATE, 1) }
+            .onFailure { Log.w(TAG, "walkie $what tap failed: ${it.javaClass.simpleName}") }
     }
 
     private fun queue(

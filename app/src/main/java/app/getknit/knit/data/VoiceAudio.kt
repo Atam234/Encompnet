@@ -42,6 +42,9 @@ object VoiceAudio {
     /** An ADTS header is 7 bytes, or 9 when the (optional) CRC is present; the length field covers both. */
     private const val ADTS_HEADER_BYTES = 7
 
+    /** The most `aac_frame_length`'s 13 bits can say, header included. */
+    private const val ADTS_MAX_FRAME_BYTES = 0x1FFF
+
     /** MPEG-4 sample-rate table, indexed by an ADTS header's 4-bit `sampling_frequency_index`. */
     private val SAMPLE_RATES =
         intArrayOf(96000, 88200, 64000, 48000, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350)
@@ -199,6 +202,33 @@ object VoiceAudio {
      * the chat's list diffing depends on not having.
      */
     fun encodePeaks(peaks: ByteArray): String = Base64.getEncoder().encodeToString(peaks)
+
+    /**
+     * The 7-byte ADTS header for one mono AAC-LC access unit of [payloadBytes] at [sampleRate], no CRC: what turns an
+     * encoder's bare frames into the stream [durationMs] walks and every voice note is stored as (a kept walkie burst,
+     * ADR 2026-11.tq7q). Null for a rate outside the MPEG-4 table or a frame too long for the 13-bit length field.
+     */
+    fun adtsHeader(
+        payloadBytes: Int,
+        sampleRate: Int,
+    ): ByteArray? {
+        val rateIndex = SAMPLE_RATES.indexOf(sampleRate)
+        val length = payloadBytes + ADTS_HEADER_BYTES
+        if (rateIndex < 0 || payloadBytes <= 0 || length > ADTS_MAX_FRAME_BYTES) return null
+        return byteArrayOf(
+            0xFF.toByte(),
+            // MPEG-4, layer 0, no CRC.
+            0xF1.toByte(),
+            // AAC-LC (object type 2, stored less one), the rate, and the top bit of a one-channel configuration (0).
+            ((1 shl 6) or (rateIndex shl 2)).toByte(),
+            // The channel configuration's low two bits (mono), then the frame length's top two.
+            ((1 shl 6) or (length shr 11)).toByte(),
+            ((length shr 3) and 0xFF).toByte(),
+            // The length's low three bits, then a buffer fullness of all ones (variable bit rate).
+            (((length and 0x07) shl 5) or 0x1F).toByte(),
+            0xFC.toByte(),
+        )
+    }
 
     /**
      * Decodes a stored `voicePeaks` column back to bar heights, or null when the column is absent or

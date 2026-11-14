@@ -880,6 +880,8 @@
     <string name="call_settings_full_screen_off">Les appels ne peuvent pas sonner sur l’écran de verrouillage : ils arrivent sous forme de notification. Activez « Autoriser les notifications en plein écran » pour Encompnet.</string>
     <string name="call_settings_prefer_mesh_title">Préférer les appels par le mesh</string>
     <string name="call_settings_prefer_mesh_subtitle">Le bouton d’appel d’une discussion lance un appel par le mesh. Les appels en direct passent dans le menu de la discussion.</string>
+    <string name="call_settings_keep_bursts_title">Enregistrer ce que je dis en appel mesh</string>
+    <string name="call_settings_keep_bursts_subtitle">Chaque fois que vous parlez pendant un appel mesh, c\'est aussi envoyé dans la discussion comme message vocal à la fin de l\'appel. Seule votre voix est enregistrée.</string>
     <string name="call_settings_transcripts_title">Transcriptions et sous-titres</string>
     <string name="call_settings_transcripts_subtitle">Convertir la parole en anglais en texte, sur ce téléphone : les messages walkie-talkie pendant leur lecture, les appels en direct quand vous activez CC, et les messages vocaux quand vous appuyez sur Transcrire. Le texte n’est jamais envoyé.</string>
     <string name="call_settings_speech_model_title">Modèle vocal</string>
