@@ -12,36 +12,45 @@ class ReadableColorTest {
         assertEquals(1f, contrastRatio(SurfaceLight, SurfaceLight), 0.001f)
     }
 
-    // The FTL accessibility pass measured the light coral at 4.11:1 on an incoming bubble: the numbers this
-    // helper exists to fix, pinned so a palette change that cures (or worsens) them is noticed.
+    // The old coral primary made 4.11:1 on an incoming bubble (the FTL accessibility pass's finding, and why the
+    // helper exists). The brand's own primary now clears the floor on both fills: pinned so a palette change
+    // that loses that is noticed.
     @Test
-    fun lightPrimaryFallsShortOnBothBubbleFills() {
-        assertEquals(4.11f, contrastRatio(CoralPrimaryLight, SurfaceVariantLight), 0.01f)
-        assertEquals(4.14f, contrastRatio(CoralPrimaryLight, CoralPrimaryContainerLight), 0.01f)
+    fun lightPrimaryClearsTheFloorOnBothBubbleFills() {
+        assertEquals(5.01f, contrastRatio(BrandPrimaryLight, SurfaceVariantLight), 0.01f)
+        assertEquals(5.51f, contrastRatio(BrandPrimaryLight, BrandPrimaryContainerLight), 0.01f)
     }
 
+    // What a wallpaper scheme can still hand the helper: an accent too light for the fill it is drawn on.
     @Test
     fun anAccentThatFallsShortIsDarkenedJustPastTheFloor() {
-        for (bubble in listOf(SurfaceVariantLight, CoralPrimaryContainerLight)) {
-            val shown = CoralPrimaryLight.readableOn(bubble)
+        for (bubble in listOf(SurfaceVariantLight, BrandPrimaryContainerLight)) {
+            assertTrue(contrastRatio(SHORT_ACCENT, bubble) < MIN_TEXT_CONTRAST)
+            val shown = SHORT_ACCENT.readableOn(bubble)
             val ratio = contrastRatio(shown, bubble)
             assertTrue("$ratio on $bubble", ratio >= MIN_TEXT_CONTRAST)
-            // Darkened, not swapped for black: barely past the floor, and still red-dominant.
+            // Darkened, not swapped for black: barely past the floor, and still green-dominant.
             assertTrue("$ratio on $bubble", ratio < MIN_TEXT_CONTRAST + 0.05f)
-            assertTrue(shown.red > shown.green && shown.red > shown.blue)
+            assertTrue(shown.green > shown.red && shown.green > shown.blue)
         }
     }
 
     @Test
     fun anAccentThatAlreadyPassesIsUntouched() {
-        assertEquals(CoralPrimaryLight, CoralPrimaryLight.readableOn(SurfaceLight))
-        assertEquals(CoralPrimaryDark, CoralPrimaryDark.readableOn(SurfaceVariantDark))
+        assertEquals(BrandPrimaryLight, BrandPrimaryLight.readableOn(SurfaceLight))
+        assertEquals(BrandPrimaryLight, BrandPrimaryLight.readableOn(SurfaceVariantLight))
+        assertEquals(BrandPrimaryDark, BrandPrimaryDark.readableOn(SurfaceVariantDark))
     }
 
     @Test
     fun onADarkFillTheAccentIsLightened() {
-        val shown = CoralPrimaryContainerDark.readableOn(SurfaceDark)
+        val shown = BrandPrimaryContainerDark.readableOn(SurfaceDark)
         assertTrue(contrastRatio(shown, SurfaceDark) >= MIN_TEXT_CONTRAST)
-        assertTrue(shown.red > CoralPrimaryContainerDark.red)
+        assertTrue(shown.green > BrandPrimaryContainerDark.green)
+    }
+
+    private companion object {
+        /** A mid-tone yellow-green (primary tone 60): about 2.7:1 on the lime bubble, 2.4:1 on the grey one. */
+        val SHORT_ACCENT = Color(0xFF7F9D00)
     }
 }

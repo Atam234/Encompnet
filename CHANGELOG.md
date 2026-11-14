@@ -34,6 +34,10 @@ document:
 
 ### Changed
 
+- The app is now called Encompnet. The launcher, notifications and every screen use the new name in all
+  languages, and the LoRa board channel keeps its old name so boards already set up still work.
+- Dark mode is now black with a yellow-green accent, and light mode uses the same accent where the coral was.
+  Error messages stay red.
 - Diagnostics lists who your phone reaches right under the radios, and each person shows whether your link to
   them is encrypted. The crash report and field log now share one section at the top.
 - The supporter badge now sits after a person's name instead of on their photo. You'll see it in the chat

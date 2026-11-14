@@ -205,7 +205,7 @@ class SettingsStore(
     val openToChat: Flow<Boolean> = dataStore.data.map { it[KEY_OPEN_TO_CHAT] ?: false }
 
     /**
-     * Whether to colour the app from the system wallpaper (Material You) instead of the Knit coral.
+     * Whether to colour the app from the system wallpaper (Material You) instead of the brand yellow-green.
      * Defaults to off: the brand is what a first run should show, and a user who wants their system's
      * palette asks for it.
      *

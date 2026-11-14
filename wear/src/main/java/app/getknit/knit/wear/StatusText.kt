@@ -39,12 +39,12 @@ enum class Glyph { Linked, Alone, Weak, Paused, Off, NoRadio, NoPhone, Radios, R
  * that is down, [Muted] off, paused or unknown. [argb] is the fixed dark-theme colour complications are
  * tinted with; the app and the tile map [Calm] and [Muted] onto their own (possibly dynamic) scheme.
  */
-@Suppress("MagicNumber") // ARGB literals, from :app's dark theme (PositiveDark, CoralPrimaryDark, ErrorDark)
+@Suppress("MagicNumber") // ARGB literals, from :app's dark theme (PositiveDark, BrandPrimaryDark, ErrorDark)
 enum class Tone(
     val argb: Int,
 ) {
     Good(0xFF72DAA0.toInt()),
-    Calm(0xFFFFB5A0.toInt()),
+    Calm(0xFFD1FE17.toInt()),
     Warn(0xFFF4C361.toInt()),
     Bad(0xFFFFB4AB.toInt()),
     Muted(0xFF8A8584.toInt()),

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Knit</string>
-    <string name="complication_nearby">Knit · Pessoas por perto</string>
-    <string name="complication_health">Knit · Status da mesh</string>
-    <string name="complication_day">Knit · Seu dia</string>
-    <string name="complication_relayed">Knit · Retransmitidas hoje</string>
-    <string name="complication_carrying">Knit · Levando</string>
-    <string name="complication_ring">Knit · Anel de conexões (para o mostrador do Knit)</string>
-    <string name="tile_label">Mesh do Knit</string>
+    <string name="app_name">Encompnet</string>
+    <string name="complication_nearby">Encompnet · Pessoas por perto</string>
+    <string name="complication_health">Encompnet · Status da mesh</string>
+    <string name="complication_day">Encompnet · Seu dia</string>
+    <string name="complication_relayed">Encompnet · Retransmitidas hoje</string>
+    <string name="complication_carrying">Encompnet · Levando</string>
+    <string name="complication_ring">Encompnet · Anel de conexões (para o mostrador do Encompnet)</string>
+    <string name="tile_label">Mesh do Encompnet</string>
     <string name="tile_description">Pessoas por perto, mensagens retransmitidas hoje e guardadas para outras pessoas pelo seu celular</string>
     <string name="joined_with_dot">%1$s · %2$s</string>
     <string name="joined_sentences">%1$s. %2$s</string>
@@ -69,7 +69,7 @@
     <string name="problem_short_aware_weak">Aware fraco</string>
     <string name="problem_short_lora">Placa LoRa offline</string>
     <string name="problem_short_relay">Retransmissor offline</string>
-    <string name="title_knit_mesh">Mesh do Knit</string>
+    <string name="title_knit_mesh">Mesh do Encompnet</string>
     <string name="title_carrying">Levando</string>
     <string name="title_relayed">Retransmitidas</string>
     <string name="title_your_day">Seu dia</string>
@@ -142,19 +142,19 @@
     <string name="nearby_last_12h">Por perto · últimas 12 h</string>
     <string name="chart_empty">Vai se formando conforme o relógio lê seu celular</string>
     <string name="busiest">Pico: %1$d às %2$s</string>
-    <string name="unreachable_hint">Mantenha o Bluetooth ligado, com o Knit funcionando no seu celular e Configurações › Relógio ativado.</string>
+    <string name="unreachable_hint">Mantenha o Bluetooth ligado, com o Encompnet funcionando no seu celular e Configurações › Relógio ativado.</string>
     <string name="last_reading">Última leitura %1$s</string>
-    <string name="paused_hint">Ela volta sozinha, ou pela notificação do Knit no seu celular.</string>
-    <string name="off_hint">Inicie pelo Knit no seu celular.</string>
+    <string name="paused_hint">Ela volta sozinha, ou pela notificação do Encompnet no seu celular.</string>
+    <string name="off_hint">Inicie pelo Encompnet no seu celular.</string>
     <string name="allow_nearby_devices">Permitir dispositivos por perto</string>
     <string name="allow_hint">O relógio lê a mesh do seu celular por Bluetooth.</string>
     <string name="allow">Permitir</string>
     <string name="allow_short">Permita</string>
-    <string name="allow_open">Abra o Knit para permitir dispositivos por perto</string>
-    <string name="allow_description">O Knit precisa da permissão Dispositivos por perto. Toque para abrir o Knit neste relógio e permitir.</string>
-    <string name="allow_tile_hint">O Knit lê seu celular por Bluetooth</string>
+    <string name="allow_open">Abra o Encompnet para permitir dispositivos por perto</string>
+    <string name="allow_description">O Encompnet precisa da permissão Dispositivos por perto. Toque para abrir o Encompnet neste relógio e permitir.</string>
+    <string name="allow_tile_hint">O Encompnet lê seu celular por Bluetooth</string>
     <string name="updated">Atualizado %1$s</string>
     <string name="not_read_yet">Ainda não lido</string>
-    <string name="open_knit_on_phone">Abra o Knit no seu celular</string>
+    <string name="open_knit_on_phone">Abra o Encompnet no seu celular</string>
     <string name="resume_on_phone">Retome no seu celular</string>
 </resources>

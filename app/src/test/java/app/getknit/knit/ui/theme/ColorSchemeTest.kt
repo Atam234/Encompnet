@@ -19,14 +19,14 @@ import kotlin.math.sign
  * `lightColorScheme()`/`darkColorScheme()` default every role the caller omits, and the defaults are
  * Material's **baseline** palette — a purple-tinted neutral ramp (`surfaceContainer` = #F3EDF7, hue 276°).
  * Knit set 24 of ~45 roles and let the rest fall through, so every `Card`, `AlertDialog`, `DropdownMenu`,
- * `ModalBottomSheet` and scrolled `TopAppBar` drew a purple-grey container against warm coral surfaces.
+ * `ModalBottomSheet` and scrolled `TopAppBar` drew a purple-grey container against the brand's own surfaces.
  * Nothing in the build would ever have noticed: an omitted role is valid Kotlin and renders fine, just in
  * the wrong hue family.
  *
  * Two independent guards, because they catch opposite mistakes. [everyRoleTheDynamicSchemeSetsIsSetHere]
  * catches a **missing** role, by reading `Theme.kt` and diffing its named arguments against the role set
  * Material's own dynamic scheme fills. [neutralRolesCarryTheBrandHue] catches a **wrong** role, by
- * measuring hue: a value that fell back to baseline lands near 270°, nowhere near the brand's ~40°.
+ * measuring hue: a value that fell back to baseline lands near 270°, nowhere near the brand's ~60°.
  *
  * Plain JVM, no Robolectric host — [SplashThemeTest] already establishes that [Color] and `toArgb()` work
  * here. The colour arithmetic is hand-rolled for a reason: `androidx.core.graphics.ColorUtils` delegates
@@ -74,7 +74,7 @@ class ColorSchemeTest {
     /**
      * The overscroll glow is the one colour Compose does not take from a theme at all:
      * `AndroidOverscroll.android.kt` compiles in `DefaultGlowColor = Color(0xFF666666)` and hands it to
-     * `EdgeEffect.setColor`, so a list that runs out of content glows flat grey under warm coral surfaces.
+     * `EdgeEffect.setColor`, so a list that runs out of content glows flat grey under the brand's surfaces.
      * `KnitTheme` overrides it through `LocalOverscrollFactory`. Only ever visible on API 29-30 — from 31
      * the effect is the stretch, which ignores the colour — which is exactly why nothing else would catch
      * this going missing: the lab Pixels can't show it.
@@ -318,8 +318,11 @@ class ColorSchemeTest {
     }
 
     private companion object {
-        /** The warm hue every neutral in the brand ramp is tinted with (neutral-variant hue 41.3°). */
-        const val BRAND_HUE = 40f
+        /**
+         * The hue every neutral in the brand ramp is tinted with, as [hueOf] reads it: the ramp is HCT hue
+         * 122.8° at chroma 4, which in HSL terms lands between 48° and 72°.
+         */
+        const val BRAND_HUE = 60f
         const val HUE_TOLERANCE = 35f
 
         /** Below this, a colour is a grey and its hue is numerically meaningless. */
@@ -340,7 +343,7 @@ class ColorSchemeTest {
         /**
          * Wallpaper primaries to harmonize toward: Material's baseline purple, then a blue, green, amber and
          * red of the kind `dynamicLightColorScheme` produces (tone 40), plus one that sits opposite the
-         * palette's coral so the 15° cap is exercised.
+         * palette's first slot so the 15° cap is exercised.
          */
         val ACCENTS =
             listOf(

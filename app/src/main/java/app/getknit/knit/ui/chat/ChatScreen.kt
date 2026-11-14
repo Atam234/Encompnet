@@ -2889,7 +2889,7 @@ internal fun MessageBubble(
             MaterialTheme.colorScheme.primary,
             0.22f * highlight,
         )
-    // The coral that names a person, a mention or a link, as dark as this bubble needs it: light `primary`
+    // The accent that names a person, a mention or a link, as dark as this bubble needs it: light `primary`
     // makes 4.1:1 on either fill, under the 4.5:1 small text needs (the FTL accessibility pass).
     val accentText = MaterialTheme.colorScheme.primary.readableOn(bubbleColor)
     Row(
@@ -3104,7 +3104,7 @@ internal fun MessageBubble(
                                     peaks = bars,
                                     positionMs = live?.positionMs,
                                     playing = live?.playing == true,
-                                    // Coral on both sides: both bubble fills are warm (primaryContainer /
+                                    // The accent on both sides: both bubble fills are tinted (primaryContainer /
                                     // surfaceVariant), and `secondary` is Knit's slate, which reads as a
                                     // foreign accent inside one.
                                     accent = MaterialTheme.colorScheme.primary,
@@ -5687,7 +5687,7 @@ private fun MicButton(
         Surface(
             shape = CircleShape,
             // Nothing at rest — inline in the field the mic is *part of* it, and a container of its own
-            // would make it a third button competing with send. While recording it fills to solid coral
+            // would make it a third button competing with send. While recording it fills to solid primary
             // (the tint the user's own bubbles and the send button already use), so the held button reads
             // as active rather than idle.
             color = if (recording) MaterialTheme.colorScheme.primary else Color.Transparent,

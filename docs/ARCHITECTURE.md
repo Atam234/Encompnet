@@ -757,7 +757,7 @@ that budget is a purely local knob that can differ per node without breaking cue
   Koin `koinViewModel()`s. `ChatViewModel` takes the `conversationId` as a runtime parameter and
   `combine`s the conversation's messages (pre-merged with reactions), peers, neighbor count, node id,
   and display name into UI rows (mentions, attachments, reaction summaries, sender name/avatar).
-- **Theme** (`ui/theme/`): real M3 light/dark schemes from the brand coral, with every role the
+- **Theme** (`ui/theme/`): real M3 light/dark schemes from the brand yellow-green (black surfaces in dark mode), with every role the
   dynamic scheme fills set explicitly (`ColorSchemeTest` guards that). Material You is a Settings
   switch, off by default so the brand shows; `KnitSemanticColors.positive` keeps "online / verified /
   healthy" green in every scheme, since a wallpaper-derived `tertiary` could land on the error hue.

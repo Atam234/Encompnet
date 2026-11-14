@@ -144,7 +144,7 @@ class StatusTextTest {
         assertEquals("Mesh off", StatusLines.nearbyLine(res, linked.copy(state = MeshState.Off)).text)
         assertEquals("Phone out of reach", StatusLines.nearbyLine(res, null).text)
         assertEquals("Linked · 5 nearby", StatusLines.healthLine(res, linked).text)
-        assertEquals("Knit mesh", StatusLines.healthLine(res, linked).title)
+        assertEquals("Encompnet mesh", StatusLines.healthLine(res, linked).title)
         assertEquals("Weak · LoRa offline", StatusLines.healthLine(res, linked.copy(state = MeshState.Degraded)).text)
         val weakHealthy = linked.copy(state = MeshState.Degraded, nan = Plane.Live, lora = Plane.Absent)
         assertEquals("Weak · check radios", StatusLines.healthLine(res, weakHealthy).text)

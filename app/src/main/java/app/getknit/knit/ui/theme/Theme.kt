@@ -19,18 +19,18 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 // `internal` rather than private so ColorSchemeTest can assert over the roles directly.
 internal val LightColorScheme =
     lightColorScheme(
-        primary = CoralPrimaryLight,
-        onPrimary = CoralOnPrimaryLight,
-        primaryContainer = CoralPrimaryContainerLight,
-        onPrimaryContainer = CoralOnPrimaryContainerLight,
-        secondary = CoralSecondaryLight,
-        onSecondary = CoralOnSecondaryLight,
-        secondaryContainer = CoralSecondaryContainerLight,
-        onSecondaryContainer = CoralOnSecondaryContainerLight,
+        primary = BrandPrimaryLight,
+        onPrimary = BrandOnPrimaryLight,
+        primaryContainer = BrandPrimaryContainerLight,
+        onPrimaryContainer = BrandOnPrimaryContainerLight,
+        secondary = BrandSecondaryLight,
+        onSecondary = BrandOnSecondaryLight,
+        secondaryContainer = BrandSecondaryContainerLight,
+        onSecondaryContainer = BrandOnSecondaryContainerLight,
         tertiary = PositiveLight,
         onTertiary = OnPositiveLight,
-        tertiaryContainer = CoralTertiaryContainerLight,
-        onTertiaryContainer = CoralOnTertiaryContainerLight,
+        tertiaryContainer = BrandTertiaryContainerLight,
+        onTertiaryContainer = BrandOnTertiaryContainerLight,
         background = BackgroundLight,
         onBackground = OnBackgroundLight,
         surface = SurfaceLight,
@@ -42,10 +42,10 @@ internal val LightColorScheme =
         onError = OnErrorLight,
         // The roles below used to be left to lightColorScheme()'s defaults, which are Material's
         // BASELINE palette — purple-grey neutrals under every Card, AlertDialog, DropdownMenu, sheet and
-        // scrolled TopAppBar, next to these warm surfaces. Tones follow Material's own role assignment
+        // scrolled TopAppBar, next to the brand's own surfaces. Tones follow Material's own role assignment
         // (dynamicLightColorScheme31, material3 1.4.0); several land on constants already declared above.
-        inversePrimary = CoralPrimaryDark, // primary 80
-        surfaceTint = CoralPrimaryLight, // primary 40
+        inversePrimary = BrandPrimaryDark, // primary 80
+        surfaceTint = BrandPrimaryLight, // primary 40
         inverseSurface = NeutralVariant20,
         inverseOnSurface = NeutralVariant95,
         outlineVariant = OnSurfaceVariantDark, // neutral-variant 80, shared with the dark scheme
@@ -59,34 +59,34 @@ internal val LightColorScheme =
         surfaceContainerHighest = SurfaceVariantLight, // neutral-variant 90
         // The "fixed" roles are identical in both schemes by definition, and every one of them lands on a
         // tone the brand palette already carries.
-        primaryFixed = CoralPrimaryContainerLight, // primary 90
-        primaryFixedDim = CoralPrimaryDark, // primary 80
-        onPrimaryFixed = CoralOnPrimaryContainerLight, // primary 10
-        onPrimaryFixedVariant = CoralPrimaryContainerDark, // primary 30
-        secondaryFixed = CoralSecondaryContainerLight, // secondary 90
-        secondaryFixedDim = CoralSecondaryDark, // secondary 80
-        onSecondaryFixed = CoralOnSecondaryContainerLight, // secondary 10
-        onSecondaryFixedVariant = CoralSecondaryContainerDark, // secondary 30
-        tertiaryFixed = CoralTertiaryContainerLight, // tertiary 90
+        primaryFixed = BrandPrimaryContainerLight, // primary 90
+        primaryFixedDim = BrandPrimaryDark, // primary 80
+        onPrimaryFixed = BrandOnPrimaryContainerLight, // primary 10
+        onPrimaryFixedVariant = BrandPrimaryContainerDark, // primary 30
+        secondaryFixed = BrandSecondaryContainerLight, // secondary 90
+        secondaryFixedDim = BrandSecondaryDark, // secondary 80
+        onSecondaryFixed = BrandOnSecondaryContainerLight, // secondary 10
+        onSecondaryFixedVariant = BrandSecondaryContainerDark, // secondary 30
+        tertiaryFixed = BrandTertiaryContainerLight, // tertiary 90
         tertiaryFixedDim = PositiveDark, // tertiary 80
-        onTertiaryFixed = CoralOnTertiaryContainerLight, // tertiary 10
-        onTertiaryFixedVariant = CoralTertiaryContainerDark, // tertiary 30
+        onTertiaryFixed = BrandOnTertiaryContainerLight, // tertiary 10
+        onTertiaryFixedVariant = BrandTertiaryContainerDark, // tertiary 30
     )
 
 internal val DarkColorScheme =
     darkColorScheme(
-        primary = CoralPrimaryDark,
-        onPrimary = CoralOnPrimaryDark,
-        primaryContainer = CoralPrimaryContainerDark,
-        onPrimaryContainer = CoralOnPrimaryContainerDark,
-        secondary = CoralSecondaryDark,
-        onSecondary = CoralOnSecondaryDark,
-        secondaryContainer = CoralSecondaryContainerDark,
-        onSecondaryContainer = CoralOnSecondaryContainerDark,
+        primary = BrandPrimaryDark,
+        onPrimary = BrandOnPrimaryDark,
+        primaryContainer = BrandPrimaryContainerDark,
+        onPrimaryContainer = BrandOnPrimaryContainerDark,
+        secondary = BrandSecondaryDark,
+        onSecondary = BrandOnSecondaryDark,
+        secondaryContainer = BrandSecondaryContainerDark,
+        onSecondaryContainer = BrandOnSecondaryContainerDark,
         tertiary = PositiveDark,
         onTertiary = OnPositiveDark,
-        tertiaryContainer = CoralTertiaryContainerDark,
-        onTertiaryContainer = CoralOnTertiaryContainerDark,
+        tertiaryContainer = BrandTertiaryContainerDark,
+        onTertiaryContainer = BrandOnTertiaryContainerDark,
         background = BackgroundDark,
         onBackground = OnBackgroundDark,
         surface = SurfaceDark,
@@ -97,37 +97,37 @@ internal val DarkColorScheme =
         error = ErrorDark,
         onError = OnErrorDark,
         // See the note in LightColorScheme; tones from dynamicDarkColorScheme31.
-        inversePrimary = CoralPrimaryLight, // primary 40
-        surfaceTint = CoralPrimaryDark, // primary 80
+        inversePrimary = BrandPrimaryLight, // primary 40
+        surfaceTint = BrandPrimaryDark, // primary 80
         inverseSurface = OnSurfaceDark, // neutral-variant 90
         inverseOnSurface = NeutralVariant20,
         outlineVariant = SurfaceVariantDark, // neutral-variant 30
         scrim = Color.Black,
         surfaceBright = NeutralVariant24,
-        surfaceDim = BackgroundDark, // neutral-variant 6
+        surfaceDim = BackgroundDark, // black, as the background is
         surfaceContainerLowest = NeutralVariant4,
         surfaceContainerLow = OnBackgroundLight, // neutral-variant 10, shared with the light scheme
         surfaceContainer = NeutralVariant12,
         surfaceContainerHigh = NeutralVariant17,
         surfaceContainerHighest = NeutralVariant22,
-        primaryFixed = CoralPrimaryContainerLight, // primary 90
-        primaryFixedDim = CoralPrimaryDark, // primary 80
-        onPrimaryFixed = CoralOnPrimaryContainerLight, // primary 10
-        onPrimaryFixedVariant = CoralPrimaryContainerDark, // primary 30
-        secondaryFixed = CoralSecondaryContainerLight, // secondary 90
-        secondaryFixedDim = CoralSecondaryDark, // secondary 80
-        onSecondaryFixed = CoralOnSecondaryContainerLight, // secondary 10
-        onSecondaryFixedVariant = CoralSecondaryContainerDark, // secondary 30
-        tertiaryFixed = CoralTertiaryContainerLight, // tertiary 90
+        primaryFixed = BrandPrimaryContainerLight, // primary 90
+        primaryFixedDim = BrandPrimaryDark, // primary 80
+        onPrimaryFixed = BrandOnPrimaryContainerLight, // primary 10
+        onPrimaryFixedVariant = BrandPrimaryContainerDark, // primary 30
+        secondaryFixed = BrandSecondaryContainerLight, // secondary 90
+        secondaryFixedDim = BrandSecondaryDark, // secondary 80
+        onSecondaryFixed = BrandOnSecondaryContainerLight, // secondary 10
+        onSecondaryFixedVariant = BrandSecondaryContainerDark, // secondary 30
+        tertiaryFixed = BrandTertiaryContainerLight, // tertiary 90
         tertiaryFixedDim = PositiveDark, // tertiary 80
-        onTertiaryFixed = CoralOnTertiaryContainerLight, // tertiary 10
-        onTertiaryFixedVariant = CoralTertiaryContainerDark, // tertiary 30
+        onTertiaryFixed = BrandOnTertiaryContainerLight, // tertiary 10
+        onTertiaryFixedVariant = BrandTertiaryContainerDark, // tertiary 30
     )
 
 @Composable
 fun KnitTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Off by default so the Knit coral brand identity shows instead of the wallpaper palette.
+    // Off by default so the yellow-green brand identity shows instead of the wallpaper palette.
     // Callers can opt into Material You on Android 12+.
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit,
@@ -154,7 +154,7 @@ fun KnitTheme(
     // KnitMotion for why.
     // LocalKnitColors is keyed on darkTheme, and on dynamicColor only for the avatar palette: the semantic
     // green is fixed in every scheme (see KnitSemanticColors), and pairing it with onPositive by mode keeps
-    // the two legible together in all four combinations. The avatar tints are static under the coral scheme
+    // the two legible together in all four combinations. The avatar tints are static under the brand scheme
     // they were drawn against, and under Material You are harmonized toward the wallpaper's primary — a
     // bounded hue nudge (AvatarTint.harmonizedToward), so an identity keeps its colour family while the
     // palette stops fighting the wallpaper. Remembered on the primary rather than recomputed per read: it
@@ -174,7 +174,7 @@ fun KnitTheme(
     // theme. Compose Foundation hardcodes it — AndroidOverscroll.android.kt's DefaultGlowColor is
     // Color(0xFF666666) — and hands it to EdgeEffect.setColor. From API 31 the effect is the stretch, which
     // ignores setColor entirely, so this is only ever visible on 29-30; those are the two releases minSdk
-    // still carries, and a flat grey glow under a coral list is exactly the fallthrough the colour-role
+    // still carries, and a flat grey glow under a brand-coloured list is exactly the fallthrough the colour-role
     // sweep was about. primary is the role the platform's own themes pointed colorEdgeEffect at.
     // Deliberately NOT gated on LocalReduceMotion, unlike everything in KnitMotion: overscroll tracks the
     // finger 1:1, and the platform's own RecyclerView keeps stretching at animator scale 0.

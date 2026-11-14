@@ -1091,7 +1091,7 @@ pulls ATF transitively: `compose.enableAccessibilityChecks(validator)` +
   finding on an emoji (the glyph's artwork is not a text colour), on a node with a disabled ancestor (WCAG
   exempts inactive controls, and Compose's label node does not carry the button's disabled state), or on an
   editable field whose estimated foreground is the theme `outline` (the border, not the text). Text drawn on
-  a tinted fill takes `ui/theme/ReadableColor.kt`'s `readableOn`, which is how the chat bubbles' coral names,
+  a tinted fill takes `ui/theme/ReadableColor.kt`'s `readableOn`, which is how the chat bubbles' accent-coloured names,
   mentions and links clear 4.5:1 in light mode and under Material You.
 - **Run locally** (headless emulator, no physical device):
   `./gradlew :app:pixel8api34DebugAndroidTest -PseedDemo=true

@@ -90,7 +90,7 @@ class KnitApplication :
 
         // Start the theme-flag read now, not at setContent. Koin singles are lazy, so resolving it here is
         // what actually begins the DataStore collect; MainActivity then reads an already-warmed value and
-        // the app does not repaint from coral to the wallpaper palette a frame into launch.
+        // the app does not repaint from the brand scheme to the wallpaper palette a frame into launch.
         koinApp.koin.get<ThemePreferences>()
 
         // Knit is on screen while any of its activities is started, as the process lifecycle counts them (#170): one

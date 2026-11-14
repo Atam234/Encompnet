@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Knit</string>
-    <string name="complication_nearby">Knit · Люди поруч</string>
-    <string name="complication_health">Knit · Стан mesh-мережі</string>
-    <string name="complication_day">Knit · Ваш день</string>
-    <string name="complication_relayed">Knit · Передано сьогодні</string>
-    <string name="complication_carrying">Knit · Переноситься</string>
-    <string name="complication_ring">Knit · Кільце зв’язків (для циферблата Knit)</string>
-    <string name="tile_label">Mesh-мережа Knit</string>
+    <string name="app_name">Encompnet</string>
+    <string name="complication_nearby">Encompnet · Люди поруч</string>
+    <string name="complication_health">Encompnet · Стан mesh-мережі</string>
+    <string name="complication_day">Encompnet · Ваш день</string>
+    <string name="complication_relayed">Encompnet · Передано сьогодні</string>
+    <string name="complication_carrying">Encompnet · Переноситься</string>
+    <string name="complication_ring">Encompnet · Кільце зв’язків (для циферблата Encompnet)</string>
+    <string name="tile_label">Mesh-мережа Encompnet</string>
     <string name="tile_description">Люди поруч, повідомлення, передані далі сьогодні, і ті, що ваш телефон зберігає для інших</string>
     <string name="joined_with_dot">%1$s · %2$s</string>
     <string name="joined_sentences">%1$s. %2$s</string>
@@ -69,7 +69,7 @@
     <string name="problem_short_aware_weak">Aware слабкий</string>
     <string name="problem_short_lora">LoRa не підключено</string>
     <string name="problem_short_relay">Ретранслятор недоступний</string>
-    <string name="title_knit_mesh">Mesh-мережа Knit</string>
+    <string name="title_knit_mesh">Mesh-мережа Encompnet</string>
     <string name="title_carrying">Переноситься</string>
     <string name="title_relayed">Передано далі</string>
     <string name="title_your_day">Ваш день</string>
@@ -150,19 +150,19 @@
     <string name="nearby_last_12h">Поруч · останні 12 год</string>
     <string name="chart_empty">Заповнюється, коли годинник зчитує дані з телефона</string>
     <string name="busiest">Найбільше: %1$d о %2$s</string>
-    <string name="unreachable_hint">Тримайте Bluetooth увімкненим, а Knit — запущеним на телефоні, з увімкненим пунктом «Налаштування › Годинник».</string>
+    <string name="unreachable_hint">Тримайте Bluetooth увімкненим, а Encompnet — запущеним на телефоні, з увімкненим пунктом «Налаштування › Годинник».</string>
     <string name="last_reading">Останнє зчитування %1$s</string>
-    <string name="paused_hint">Мережа продовжить роботу сама або через сповіщення Knit на телефоні.</string>
-    <string name="off_hint">Запустіть її в Knit на телефоні.</string>
+    <string name="paused_hint">Мережа продовжить роботу сама або через сповіщення Encompnet на телефоні.</string>
+    <string name="off_hint">Запустіть її в Encompnet на телефоні.</string>
     <string name="allow_nearby_devices">Дозвольте доступ до пристроїв поблизу</string>
     <string name="allow_hint">Годинник зчитує стан mesh-мережі з телефона через Bluetooth.</string>
     <string name="allow">Дозволити</string>
     <string name="allow_short">Дозвіл</string>
-    <string name="allow_open">Відкрийте Knit, щоб дозволити доступ до пристроїв поблизу</string>
-    <string name="allow_description">Knit потрібен доступ до пристроїв поблизу. Натисніть, щоб відкрити Knit на цьому годиннику й надати дозвіл.</string>
-    <string name="allow_tile_hint">Knit зчитує дані телефона через Bluetooth</string>
+    <string name="allow_open">Відкрийте Encompnet, щоб дозволити доступ до пристроїв поблизу</string>
+    <string name="allow_description">Encompnet потрібен доступ до пристроїв поблизу. Натисніть, щоб відкрити Encompnet на цьому годиннику й надати дозвіл.</string>
+    <string name="allow_tile_hint">Encompnet зчитує дані телефона через Bluetooth</string>
     <string name="updated">Оновлено %1$s</string>
     <string name="not_read_yet">Ще не зчитано</string>
-    <string name="open_knit_on_phone">Відкрийте Knit на телефоні</string>
+    <string name="open_knit_on_phone">Відкрийте Encompnet на телефоні</string>
     <string name="resume_on_phone">Продовжте на телефоні</string>
 </resources>

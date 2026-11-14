@@ -12,7 +12,7 @@ const val PREVIEW_NOW: Long = 1_700_000_000_000L
 
 /**
  * Shared wrapper for `@Preview` composables. Wraps [content] in [KnitTheme] (so previews pick up the
- * coral brand palette and typography instead of bare Material defaults) and a [Surface] (so the
+ * brand palette and typography instead of bare Material defaults) and a [Surface] (so the
  * preview gets a themed background rather than a transparent one).
  *
  * `KnitTheme` uses `dynamicColor = false`, so the static light/dark color schemes apply without a real

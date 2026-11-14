@@ -100,9 +100,9 @@ internal class NotificationAvatars(
      * light or dark notification shade. The adaptive mask rounds the square bitmap to the same circle.
      */
     fun roomAvatar(): Bitmap {
-        // CoralSecondaryContainerLight / CoralOnSecondaryContainerLight — the chat-list room glyph colors.
-        val background = 0xFFE0E0EC.toInt()
-        val logoTint = 0xFF181824.toInt()
+        // BrandSecondaryContainerLight / BrandOnSecondaryContainerLight — the chat-list room glyph colors.
+        val background = 0xFFE2E5CB.toInt()
+        val logoTint = 0xFF1A1D0E.toInt()
         val bitmap = createBitmap(AVATAR_PX, AVATAR_PX)
         val canvas = Canvas(bitmap)
         canvas.drawColor(background)
@@ -240,7 +240,7 @@ internal class NotificationAvatars(
         accent: Color?,
     ): AvatarTint = AvatarTintsLight[avatarTintIndex(key)].let { if (accent != null) it.harmonizedToward(accent) else it }
 
-    /** The wallpaper primary the in-app palette is harmonized toward, or null when the coral scheme is in force. */
+    /** The wallpaper primary the in-app palette is harmonized toward, or null when the brand scheme is in force. */
     private fun wallpaperAccent(): Color? = if (onWallpaperPalette()) dynamicLightColorScheme(context).primary else null
 
     /** Whether `KnitTheme` is drawing the wallpaper palette: the Material You switch, on a release that has one. */

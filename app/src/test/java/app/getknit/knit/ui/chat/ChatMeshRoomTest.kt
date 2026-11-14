@@ -302,7 +302,7 @@ class ChatMeshRoomTest {
         compose.onAllNodesWithTag("chat_mesh_shield", useUnmergedTree = true).assertCountEquals(0)
         compose.onNodeWithContentDescription("Sam, on the Meshtastic channel — identity not verified").performClick()
         compose.onNodeWithText("Might not be Sam").assertIsDisplayed()
-        compose.onNodeWithText("no signature Knit could check", substring = true).assertIsDisplayed()
+        compose.onNodeWithText("no signature Encompnet could check", substring = true).assertIsDisplayed()
         assertTrue(profileOpened == null)
     }
 
@@ -486,7 +486,7 @@ class ChatMeshRoomTest {
         render(listOf(row()), showConsent = true)
         compose.onNodeWithText("Who can see this").assertIsDisplayed()
         compose.onNodeWithText("What does not go out").assertIsDisplayed()
-        compose.onNodeWithText("Your Knit name stays off the air", substring = true).assertIsDisplayed()
+        compose.onNodeWithText("Your Encompnet name stays off the air", substring = true).assertIsDisplayed()
 
         compose.onNodeWithTag("chat_mesh_consent_accept").performClick()
         assertTrue("accepting has to reach the ViewModel", consentAccepted)

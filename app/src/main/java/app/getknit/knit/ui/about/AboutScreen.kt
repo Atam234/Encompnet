@@ -75,7 +75,7 @@ import kotlinx.coroutines.launch
 private val BRAND_MARK_SIZE = 72.dp
 
 /** The label the clipboard shows for the copied build block. */
-private const val CLIP_LABEL = "Knit build info"
+private const val CLIP_LABEL = "Encompnet build info"
 
 /**
  * About Knit: the license notice GPL §5 asks a program to carry, the way to the source, and the build facts a

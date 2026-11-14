@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Knit</string>
-    <string name="complication_nearby">Knit · 附近的人</string>
-    <string name="complication_health">Knit · Mesh 状态</string>
-    <string name="complication_day">Knit · 你的一天</string>
-    <string name="complication_relayed">Knit · 今天代传</string>
-    <string name="complication_carrying">Knit · 正在代传</string>
-    <string name="complication_ring">Knit · 连接环（用于 Knit 表盘）</string>
-    <string name="tile_label">Knit Mesh</string>
+    <string name="app_name">Encompnet</string>
+    <string name="complication_nearby">Encompnet · 附近的人</string>
+    <string name="complication_health">Encompnet · Mesh 状态</string>
+    <string name="complication_day">Encompnet · 你的一天</string>
+    <string name="complication_relayed">Encompnet · 今天代传</string>
+    <string name="complication_carrying">Encompnet · 正在代传</string>
+    <string name="complication_ring">Encompnet · 连接环（用于 Encompnet 表盘）</string>
+    <string name="tile_label">Encompnet Mesh</string>
     <string name="tile_description">附近的人，以及你的手机今天代传和为他人保存的消息</string>
     <string name="joined_with_dot">%1$s · %2$s</string>
     <string name="joined_sentences">%1$s。%2$s</string>
@@ -69,7 +69,7 @@
     <string name="problem_short_aware_weak">Aware 受限</string>
     <string name="problem_short_lora">LoRa 离线</string>
     <string name="problem_short_relay">中继离线</string>
-    <string name="title_knit_mesh">Knit Mesh</string>
+    <string name="title_knit_mesh">Encompnet Mesh</string>
     <string name="title_carrying">正在代传</string>
     <string name="title_relayed">已代传</string>
     <string name="title_your_day">你的一天</string>
@@ -126,19 +126,19 @@
     <string name="nearby_last_12h">附近 · 过去 12 小时</string>
     <string name="chart_empty">手表读取你的手机后，这里会逐渐显示数据</string>
     <string name="busiest">最多：%2$s 有 %1$d 人</string>
-    <string name="unreachable_hint">请保持 Bluetooth 开启，在手机上运行 Knit，并开启“设置 › 手表”。</string>
+    <string name="unreachable_hint">请保持 Bluetooth 开启，在手机上运行 Encompnet，并开启“设置 › 手表”。</string>
     <string name="last_reading">上次读取：%1$s</string>
-    <string name="paused_hint">Mesh 会自动恢复，你也可以通过手机上的 Knit 通知恢复。</string>
-    <string name="off_hint">在手机上的 Knit 中开启 Mesh。</string>
+    <string name="paused_hint">Mesh 会自动恢复，你也可以通过手机上的 Encompnet 通知恢复。</string>
+    <string name="off_hint">在手机上的 Encompnet 中开启 Mesh。</string>
     <string name="allow_nearby_devices">允许“附近的设备”权限</string>
     <string name="allow_hint">手表通过 Bluetooth 从你的手机读取 Mesh 状态。</string>
     <string name="allow">允许</string>
     <string name="allow_short">允许</string>
-    <string name="allow_open">打开 Knit 以允许“附近的设备”权限</string>
-    <string name="allow_description">Knit 需要“附近的设备”权限。点按即可在这块手表上打开 Knit 并授予权限。</string>
-    <string name="allow_tile_hint">Knit 通过 Bluetooth 读取你的手机</string>
+    <string name="allow_open">打开 Encompnet 以允许“附近的设备”权限</string>
+    <string name="allow_description">Encompnet 需要“附近的设备”权限。点按即可在这块手表上打开 Encompnet 并授予权限。</string>
+    <string name="allow_tile_hint">Encompnet 通过 Bluetooth 读取你的手机</string>
     <string name="updated">%1$s更新</string>
     <string name="not_read_yet">尚未读取</string>
-    <string name="open_knit_on_phone">在手机上打开 Knit</string>
+    <string name="open_knit_on_phone">在手机上打开 Encompnet</string>
     <string name="resume_on_phone">在手机上恢复</string>
 </resources>

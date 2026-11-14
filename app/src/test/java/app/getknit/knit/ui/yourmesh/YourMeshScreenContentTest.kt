@@ -92,7 +92,7 @@ class YourMeshScreenContentTest {
     fun aSearchRefusedOffScreenNamesTheRuleAndKeepsBluetooth() {
         // ADR 2026-09.535d: the OS's rule on Android 10-12, not a fault — so the line says what still works.
         render(YourMeshUiState(health = TransportHealth.ForegroundOnly))
-        compose.onNodeWithTag("your_mesh_hero").assertTextContains("only while Knit is open", substring = true)
+        compose.onNodeWithTag("your_mesh_hero").assertTextContains("only while Encompnet is open", substring = true)
         compose.onNodeWithTag("your_mesh_hero").assertTextContains("Bluetooth keeps going", substring = true)
     }
 

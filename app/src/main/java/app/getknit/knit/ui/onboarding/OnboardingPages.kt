@@ -95,7 +95,7 @@ internal fun WelcomePage(
         ) {
             AnimatedVisibility(visibleState = shown, enter = KnitMotion.enterPop()) {
                 // The launcher's themed-icon layer: the K mark as a silhouette, tinted to the scheme's primary
-                // — coral on the stock scheme, the wallpaper's hue under Material You, the same way the
+                // — yellow-green on the stock scheme, the wallpaper's hue under Material You, the same way the
                 // launcher itself draws it. Decorative; the title below is the heading.
                 Icon(
                     painter = painterResource(R.drawable.ic_launcher_monochrome),

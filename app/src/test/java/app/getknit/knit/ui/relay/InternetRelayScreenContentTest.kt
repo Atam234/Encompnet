@@ -268,7 +268,7 @@ class InternetRelayScreenContentTest {
                 relays = listOf(relay(connected = false, scopeCount = null, carriesPhotos = null, lastError = "too_large")),
             ),
         )
-        compose.onNodeWithText("Not compatible with this version of Knit").assertIsDisplayed()
+        compose.onNodeWithText("Not compatible with this version of Encompnet").assertIsDisplayed()
     }
 
     @Test

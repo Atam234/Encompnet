@@ -243,7 +243,7 @@ Knit is built for situations where there's **no reliable network but people are 
   arrive while photos and files take longer.
 - **Offline app sharing** — hand Knit to a nearby phone with no store: the installed splits are merged
   into a universal APK and re-signed on-device (ARSCLib + apksig).
-- **Material 3** UI with a coral brand theme and full dark mode — following your phone, pinned to light
+- **Material 3** UI with a yellow-green brand theme and a black dark mode — following your phone, pinned to light
   or dark in Settings, or taking your wallpaper's colours if you turn those on (Android 12+). A message
   you start and don't send is still waiting in that chat when you come back, and the chat list shows it
   as `Draft:` until it goes.

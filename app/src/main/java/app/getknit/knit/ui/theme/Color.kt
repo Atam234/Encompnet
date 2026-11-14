@@ -2,76 +2,78 @@ package app.getknit.knit.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Knit brand palette — a warm coral, ported from the legacy app (colorPrimary #E67474,
-// colorPrimaryDark #ED4854, accent slate #454551, success green #08AD6C) and expanded into a
-// Material 3 scheme. Seeds: primary #E55E4C (warm coral), secondary #454551 (slate),
-// tertiary #08AD6C (green). The green is the app's semantic "good" colour rather than a scheme role:
-// it lives in KnitSemanticColors.positive, because Material You would otherwise derive tertiary from the
-// wallpaper and the online dot could come out the same hue as an error.
+// Encompnet brand palette: black with a yellow-green (lime) accent. Seeds: primary #D1FE17 (HCT hue 122.8 /
+// chroma 81.2), secondary the same hue at chroma 12, tertiary #08AD6C (green). The primary family is that
+// seed's tonal ramp (10 / 20 / 30 / 40), except that the seed itself stands at tone 90 and is the dark
+// scheme's primary, where Material would take the duller tone 80. The green is the app's semantic "good"
+// colour rather than a scheme role: it lives in KnitSemanticColors.positive, because Material You would
+// otherwise derive tertiary from the wallpaper and the online dot could come out the same hue as an error.
+// The dark scheme's background and surface are pure black by design, not a tone of the neutral ramp.
 
 // Light
-val CoralPrimaryLight = Color(0xFFBD4030)
-val CoralOnPrimaryLight = Color(0xFFFFFFFF)
-val CoralPrimaryContainerLight = Color(0xFFFFDBD1)
-val CoralOnPrimaryContainerLight = Color(0xFF3B0A00)
-val CoralSecondaryLight = Color(0xFF5B5B67)
-val CoralOnSecondaryLight = Color(0xFFFFFFFF)
-val CoralSecondaryContainerLight = Color(0xFFE0E0EC)
-val CoralOnSecondaryContainerLight = Color(0xFF181824)
+val BrandPrimaryLight = Color(0xFF516600)
+val BrandOnPrimaryLight = Color(0xFFFFFFFF)
+val BrandPrimaryContainerLight = Color(0xFFD1FE17)
+val BrandOnPrimaryContainerLight = Color(0xFF0C2100)
+val BrandSecondaryLight = Color(0xFF5D604C)
+val BrandOnSecondaryLight = Color(0xFFFFFFFF)
+val BrandSecondaryContainerLight = Color(0xFFE2E5CB)
+val BrandOnSecondaryContainerLight = Color(0xFF1A1D0E)
 val PositiveLight = Color(0xFF006D43)
 val OnPositiveLight = Color(0xFFFFFFFF)
-val CoralTertiaryContainerLight = Color(0xFF8FF7BD)
-val CoralOnTertiaryContainerLight = Color(0xFF00210F)
-val BackgroundLight = Color(0xFFFFF8F6)
-val OnBackgroundLight = Color(0xFF271814)
-val SurfaceLight = Color(0xFFFFF8F6)
-val OnSurfaceLight = Color(0xFF271814)
-val SurfaceVariantLight = Color(0xFFF5DDD6)
-val OnSurfaceVariantLight = Color(0xFF53433D)
-val OutlineLight = Color(0xFF857369)
+val BrandTertiaryContainerLight = Color(0xFF8FF7BD)
+val BrandOnTertiaryContainerLight = Color(0xFF00210F)
+val BackgroundLight = Color(0xFFFBF9F1)
+val OnBackgroundLight = Color(0xFF1B1C17)
+val SurfaceLight = Color(0xFFFBF9F1)
+val OnSurfaceLight = Color(0xFF1B1C17)
+val SurfaceVariantLight = Color(0xFFE4E3DA)
+val OnSurfaceVariantLight = Color(0xFF474741)
+val OutlineLight = Color(0xFF787771)
 val ErrorLight = Color(0xFFBA1A1A)
 val OnErrorLight = Color(0xFFFFFFFF)
 
 // Dark
-val CoralPrimaryDark = Color(0xFFFFB5A0)
-val CoralOnPrimaryDark = Color(0xFF5F1500)
-val CoralPrimaryContainerDark = Color(0xFF7E2D17)
-val CoralOnPrimaryContainerDark = Color(0xFFFFDBD1)
-val CoralSecondaryDark = Color(0xFFC5C4D2)
-val CoralOnSecondaryDark = Color(0xFF2D2E39)
-val CoralSecondaryContainerDark = Color(0xFF444450)
-val CoralOnSecondaryContainerDark = Color(0xFFE0E0EC)
+val BrandPrimaryDark = Color(0xFFD1FE17)
+val BrandOnPrimaryDark = Color(0xFF273500)
+val BrandPrimaryContainerDark = Color(0xFF3C4D00)
+val BrandOnPrimaryContainerDark = Color(0xFFD1FE17)
+val BrandSecondaryDark = Color(0xFFC5C9B0)
+val BrandOnSecondaryDark = Color(0xFF2E3221)
+val BrandSecondaryContainerDark = Color(0xFF454936)
+val BrandOnSecondaryContainerDark = Color(0xFFE2E5CB)
 val PositiveDark = Color(0xFF72DAA0)
 val OnPositiveDark = Color(0xFF00391F)
-val CoralTertiaryContainerDark = Color(0xFF005230)
-val CoralOnTertiaryContainerDark = Color(0xFF8FF7BD)
-val BackgroundDark = Color(0xFF1A110E)
-val OnBackgroundDark = Color(0xFFF1DFD9)
-val SurfaceDark = Color(0xFF1A110E)
-val OnSurfaceDark = Color(0xFFF1DFD9)
-val SurfaceVariantDark = Color(0xFF53433D)
-val OnSurfaceVariantDark = Color(0xFFD8C2BA)
-val OutlineDark = Color(0xFFA08D85)
+val BrandTertiaryContainerDark = Color(0xFF005230)
+val BrandOnTertiaryContainerDark = Color(0xFF8FF7BD)
+val BackgroundDark = Color(0xFF000000)
+val OnBackgroundDark = Color(0xFFE4E3DA)
+val SurfaceDark = Color(0xFF000000)
+val OnSurfaceDark = Color(0xFFE4E3DA)
+val SurfaceVariantDark = Color(0xFF474741)
+val OnSurfaceVariantDark = Color(0xFFC8C7BF)
+val OutlineDark = Color(0xFF92918A)
 val ErrorDark = Color(0xFFFFB4AB)
 val OnErrorDark = Color(0xFF690005)
 
-// Neutral-variant ramp — hue 41.3 / chroma 8.7, the ramp Knit's own surfaceVariant/outline/background
-// constants above already sit on (to within 3/255). Named by tone rather than by role because several
-// roles share one tone: light `inverseSurface` and dark `inverseOnSurface` are both tone 20. Theme.kt
-// maps role → tone, following Material's own assignment (material3 1.4.0, dynamic*ColorScheme31).
+// Neutral-variant ramp: hue 122.8 / chroma 4.0, the ramp the surfaceVariant/outline/background constants
+// above sit on (the dark background and surface excepted: they are black). Named by tone rather than by
+// role because several roles share one tone: light `inverseSurface` and dark `inverseOnSurface` are both
+// tone 20. Theme.kt maps role → tone, following Material's own assignment (material3 1.4.0,
+// dynamic*ColorScheme31).
 //
 // These exist because `lightColorScheme()`/`darkColorScheme()` default every unset role to Material's
 // BASELINE palette, which is tinted purple — `surfaceContainer` was #F3EDF7 (hue 276°) sitting next to
-// these warm coral surfaces (hue ~14°), under every Card, AlertDialog, DropdownMenu, ModalBottomSheet
-// and scrolled TopAppBar in the app. Regenerate with `python3 scripts/gen-color-scheme.py`.
-val NeutralVariant4 = Color(0xFF170B07)
-val NeutralVariant12 = Color(0xFF2A1D17)
-val NeutralVariant17 = Color(0xFF352721)
-val NeutralVariant20 = Color(0xFF3C2D27)
-val NeutralVariant22 = Color(0xFF40312C)
-val NeutralVariant24 = Color(0xFF453630)
-val NeutralVariant87 = Color(0xFFEDD5CC)
-val NeutralVariant92 = Color(0xFFFCE3DA)
-val NeutralVariant94 = Color(0xFFFFE9E2)
-val NeutralVariant95 = Color(0xFFFFEDE7)
-val NeutralVariant96 = Color(0xFFFFF1EC)
+// the brand's own surfaces, under every Card, AlertDialog, DropdownMenu, ModalBottomSheet and scrolled
+// TopAppBar in the app. Regenerate with `python3 scripts/gen-color-scheme.py`.
+val NeutralVariant4 = Color(0xFF0E0F0A)
+val NeutralVariant12 = Color(0xFF1F201B)
+val NeutralVariant17 = Color(0xFF2A2A25)
+val NeutralVariant20 = Color(0xFF30312B)
+val NeutralVariant22 = Color(0xFF353530)
+val NeutralVariant24 = Color(0xFF393A34)
+val NeutralVariant87 = Color(0xFFDCDAD2)
+val NeutralVariant92 = Color(0xFFEAE8E0)
+val NeutralVariant94 = Color(0xFFF0EEE6)
+val NeutralVariant95 = Color(0xFFF3F1E9)
+val NeutralVariant96 = Color(0xFFF6F4EB)

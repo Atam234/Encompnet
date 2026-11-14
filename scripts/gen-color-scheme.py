@@ -8,25 +8,24 @@ Run it, then paste the printed block into `app/src/main/java/app/getknit/knit/ui
 **Why this exists.** `lightColorScheme()`/`darkColorScheme()` take ~45 roles. Knit set 24 and let the
 rest default, so `surfaceContainer`, `outlineVariant`, `inverseSurface` and friends fell through to
 Material's *baseline* palette, which is tinted purple (`surfaceContainer` = #F3EDF7, hue 276 degrees)
-and sat next to Knit's warm coral surfaces (hue ~14). Every Card, AlertDialog, DropdownMenu,
+and sat next to the brand's own surfaces. Every Card, AlertDialog, DropdownMenu,
 ModalBottomSheet and scrolled TopAppBar drew one of those. This fills the gap.
 
 **What it does NOT do: it does not touch the 24 roles that already exist.** That is the whole
-constraint. Knit's palette was authored by hand rather than generated, so the families do not all sit
-on one tonal ramp -- the coral primary in particular is off its own ramp by up to 31/255 per channel
-(`CoralPrimaryLight` is at tone 45, not 40, and carries far more chroma than its own containers).
-Re-deriving those would restyle the app, which is not what filling a gap should do.
+constraint. The primary family is the #D1FE17 seed's tonal ramp with two hand-set exceptions (the seed
+itself stands at tone 90 and is the dark primary), and the dark background and surface are pure black
+rather than tone 6. Re-deriving those would restyle the app, which is not what filling a gap should do.
 
 Two things make that constraint cheap to honour:
 
   * **Most missing roles are aliases.** Material's own light/dark mappings (verified against
     `DynamicTonalPalette.android.kt`, material3 1.4.0) put every `*Fixed` role, `inversePrimary` and
     `surfaceTint` on tones Knit already defines -- `primaryFixed` is primary tone 90, which is exactly
-    `CoralPrimaryContainerLight`. Those 14 roles are re-used verbatim, so the incoherent primary family
+    `BrandPrimaryContainerLight`. Those 14 roles are re-used verbatim, so the incoherent primary family
     never has to be regenerated.
   * **Everything genuinely new comes from one family.** Material derives every neutral surface from the
     *neutralVariant* palette, and that is the family Knit authored most consistently: a single ramp at
-    hue 41.3 / chroma 8.7 reproduces all five of its existing members to within 3/255 per channel. The
+    hue 122.8 / chroma 4.0 (the primary seed's hue) reproduces every existing member exactly. The
     11 values printed below are tones of that ramp, all near-neutral, where a residual that small is not
     visible.
 
@@ -43,8 +42,8 @@ import sys
 # --- The fitted neutralVariant ramp -----------------------------------------
 # Fitted to Knit's five existing neutralVariant members (SurfaceVariantLight, OnSurfaceVariantLight,
 # OutlineLight, OnSurfaceVariantDark, OutlineDark). See verify().
-NV_HUE = 41.3
-NV_CHROMA = 8.7
+NV_HUE = 122.79042837218539  # cam16_from_argb(#D1FE17)
+NV_CHROMA = 4.0
 
 # Largest per-channel drift tolerated when re-deriving an existing constant.
 MAX_DRIFT = 6
@@ -265,13 +264,14 @@ def hct_to_argb(hue, chroma, tone):
 
 # Existing constants, keyed by the neutralVariant tone Material assigns them. verify() re-derives each.
 NV_ANCHORS = [
-    ("SurfaceVariantLight", "F5DDD6", 90),
-    ("OnSurfaceVariantLight", "53433D", 30),
-    ("OutlineLight", "857369", 50),
-    ("OnSurfaceVariantDark", "D8C2BA", 80),
-    ("OutlineDark", "A08D85", 60),
-    ("BackgroundLight", "FFF8F6", 98),
-    ("BackgroundDark", "1A110E", 6),
+    ("SurfaceVariantLight", "E4E3DA", 90),
+    ("OnSurfaceVariantLight", "474741", 30),
+    ("OutlineLight", "787771", 50),
+    ("OnSurfaceVariantDark", "C8C7BF", 80),
+    ("OutlineDark", "92918A", 60),
+    ("BackgroundLight", "FBF9F1", 98),
+    ("OnBackgroundLight", "1B1C17", 10),
+    # BackgroundDark / SurfaceDark are absent on purpose: the dark scheme is pure black, not tone 6.
 ]
 
 # The neutralVariant tones Color.kt does not already carry. Named by tone rather than by role because

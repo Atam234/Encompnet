@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
  * synchronously, and the light/dark choice projected onto the platform's per-app night mode.
  *
  * **Why [dynamicColor] is warmed.** `MainActivity` composes `KnitTheme` immediately, but DataStore emits
- * asynchronously, so a plain `collectAsStateWithLifecycle(initialValue = false)` would paint the coral scheme
+ * asynchronously, so a plain `collectAsStateWithLifecycle(initialValue = false)` would paint the brand scheme
  * for the first frames and then flip to the wallpaper palette — a launch-time colour pop, the same class of
  * defect as issue #2. There is deliberately no `runBlocking` anywhere in this app, so the fix is to start the
  * read early instead: `Eagerly` begins collecting when this object is built, which `KnitApplication.onCreate`

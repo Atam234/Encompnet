@@ -141,7 +141,7 @@ class ChatRelayIndicatorTest {
         compose.onNodeWithTag("chat_relay_notice_dismiss").assertDoesNotExist()
         compose.onNodeWithTag("chat_relay_notice").performClick()
         compose.onNodeWithText("Relays need forward secrecy").assertIsDisplayed()
-        compose.onNodeWithText("Ana's version of Knit", substring = true).assertIsDisplayed()
+        compose.onNodeWithText("Ana's version of Encompnet", substring = true).assertIsDisplayed()
     }
 
     @Test

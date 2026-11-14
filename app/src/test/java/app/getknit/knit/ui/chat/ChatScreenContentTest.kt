@@ -273,7 +273,7 @@ class ChatScreenContentTest {
         // The sender's half of the sheet stays out of a receiver's copy.
         compose.onNodeWithText("Send a file directly?").assertDoesNotExist()
         compose
-            .onNodeWithText("Knit does not scan files for harmful content", substring = true)
+            .onNodeWithText("Encompnet does not scan files for harmful content", substring = true)
             .performScrollTo()
             .assertIsDisplayed()
 

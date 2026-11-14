@@ -40,7 +40,7 @@ would not merely look wrong, it would make the app report a seized radio as a wo
 
 So `KnitSemanticColors.positive` pins the green, provided by `KnitTheme` beside `LocalReduceMotion` and
 keyed on `darkTheme` rather than on `dynamicColor`, so `onPositive` stays legible on it in all four
-combinations. It reuses the constants `tertiary` already held (renamed `CoralTertiary*` → `Positive*`), so
+combinations. It reuses the constants `tertiary` already held (renamed `BrandTertiary*` → `Positive*`), so
 that commit changed no pixels.
 
 Pinning a fixed colour into a wallpaper-derived scheme is safe here for a specific reason: Material fixes
@@ -64,14 +64,14 @@ omitted role is valid Kotlin and renders fine, just in the wrong hue family. Ena
 have *fixed* those roles and left "off" looking worse than "on", so they are filled in the same change.
 
 **The palette is not a generated tonal ramp, and this is the trap.** Measuring every existing constant in
-HCT shows the families do not share one ramp: hue drifts 10–15° within a family, and `CoralPrimaryLight`
+HCT shows the families do not share one ramp: hue drifts 10–15° within a family, and `BrandPrimaryLight`
 sits at tone 45 with far more chroma than its own containers — a fitted primary ramp misses it by 31/255
 per channel. So there is no seed that reproduces `Color.kt`, and "regenerate the scheme from the seeds"
 silently restyles the app. Two things make that avoidable:
 
 1. **Most missing roles are aliases.** Material's own tone mapping puts all twelve `*Fixed` roles,
    `inversePrimary` and `surfaceTint` on tones the palette already carries — `primaryFixed` is primary
-   tone 90, which is exactly `CoralPrimaryContainerLight`. Those 14 are re-used verbatim, so the
+   tone 90, which is exactly `BrandPrimaryContainerLight`. Those 14 are re-used verbatim, so the
    incoherent primary family never has to be regenerated.
 2. **Everything genuinely new comes from one family.** Material derives every neutral surface from
    *neutralVariant*, and that is the family Knit authored most consistently: one ramp at hue 41.3 /

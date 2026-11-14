@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit
  * The mesh is off because the user said so from its notification: "Mesh paused until 3:15 PM — Resume"
  * while a pause runs ([pausedUntil] set), "Mesh stopped — Start" after a Stop ([pausedUntil] null). Pinned
  * above the chat list like [RadioWarningBanner], one row with the icon, the message and the button centred
- * on the text line. The colour is the primary container — the app's own coral, so it reads as a notice with
+ * on the text line. The colour is the primary container — the app's own accent, so it reads as a notice with
  * weight — not the error container, which the clone and all-radios-off banners keep for things that are
  * actually wrong; this one the user asked for. Not dismissible: the button is the way out. [now] fixes the
  * pause label's "today or later" reading. ADR 2026-09.wz99.

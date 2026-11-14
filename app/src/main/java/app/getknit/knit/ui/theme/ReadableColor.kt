@@ -20,8 +20,8 @@ fun contrastRatio(
 /**
  * This colour, moved only as far toward black or white (whichever [background] contrasts with more) as it
  * takes to reach [minRatio] on [background] — unchanged when it already does. For an accent drawn as text
- * on a tinted fill: Knit's light coral `primary` makes 5.1:1 on the plain surface but 4.1:1 on either chat
- * bubble, and under Material You neither colour is ours to pick, so the fix has to be computed, not chosen.
+ * on a tinted fill: the brand's own `primary` clears the floor on both chat bubbles, but under Material You
+ * neither colour is ours to pick, so the fix has to be computed, not chosen.
  */
 fun Color.readableOn(
     background: Color,

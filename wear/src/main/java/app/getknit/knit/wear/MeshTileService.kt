@@ -44,7 +44,7 @@ import kotlin.time.Duration.Companion.minutes
  * The Knit tile: the mesh state as its title (or, when a radio the phone has is weak or down, that problem),
  * then three data cards — peers nearby, messages relayed today (the watch's own history), messages held for
  * others — and a Refresh edge button. Material 3 Expressive (ProtoLayout Material3), in the watch's dynamic
- * colours where the user has them on, else Knit's coral ([KnitTileColors]).
+ * colours where the user has them on, else the brand's yellow-green ([KnitTileColors]).
  *
  * A tile request must answer at once, so it never waits on Bluetooth: it draws the cached snapshot and, when
  * that is due (or Refresh was tapped), starts a background read that asks for a redraw when it lands
@@ -343,19 +343,19 @@ class MeshTileService : Material3TileService(defaultColorScheme = KnitTileColors
     }
 }
 
-/** The tile's scheme when dynamic colour is off: :app's dark coral, as the watch app's own fallback. */
+/** The tile's scheme when dynamic colour is off: :app's dark yellow-green, as the watch app's own fallback. */
 @Suppress("MagicNumber") // ARGB literals, copied from :app's ui/theme/Color.kt
 private val KnitTileColors =
     ColorScheme(
-        primary = 0xFFFFB5A0.toInt().argb,
-        primaryDim = 0xFFE89C87.toInt().argb,
-        primaryContainer = 0xFF7E2D17.toInt().argb,
-        onPrimary = 0xFF5F1500.toInt().argb,
-        onPrimaryContainer = 0xFFFFDBD1.toInt().argb,
-        secondary = 0xFFC5C4D2.toInt().argb,
-        secondaryContainer = 0xFF444450.toInt().argb,
-        onSecondary = 0xFF2D2E39.toInt().argb,
-        onSecondaryContainer = 0xFFE0E0EC.toInt().argb,
+        primary = 0xFFD1FE17.toInt().argb,
+        primaryDim = 0xFFAED500.toInt().argb,
+        primaryContainer = 0xFF3C4D00.toInt().argb,
+        onPrimary = 0xFF273500.toInt().argb,
+        onPrimaryContainer = 0xFFD1FE17.toInt().argb,
+        secondary = 0xFFC5C9B0.toInt().argb,
+        secondaryContainer = 0xFF454936.toInt().argb,
+        onSecondary = 0xFF2E3221.toInt().argb,
+        onSecondaryContainer = 0xFFE2E5CB.toInt().argb,
         tertiary = 0xFF72DAA0.toInt().argb,
         tertiaryContainer = 0xFF005230.toInt().argb,
         onTertiary = 0xFF00391F.toInt().argb,

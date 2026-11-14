@@ -9,22 +9,22 @@ import androidx.wear.compose.material3.dynamicColorScheme
 import app.getknit.knit.wear.Tone
 
 /**
- * Knit's coral on the watch, from :app's dark scheme (CoralPrimaryDark and friends), with :app's positive
+ * The brand's yellow-green on the watch, from :app's dark scheme (BrandPrimaryDark and friends), with :app's positive
  * green as the tertiary. Used only when the watch has no dynamic colours on (Wear OS 5+ follows the face).
  */
 @Suppress("MagicNumber") // ARGB literals, copied from :app's ui/theme/Color.kt
 private val KnitWearColors =
     ColorScheme(
-        primary = Color(0xFFFFB5A0),
-        primaryDim = Color(0xFFE89C87),
-        primaryContainer = Color(0xFF7E2D17),
-        onPrimary = Color(0xFF5F1500),
-        onPrimaryContainer = Color(0xFFFFDBD1),
-        secondary = Color(0xFFC5C4D2),
-        secondaryDim = Color(0xFFAAA9B6),
-        secondaryContainer = Color(0xFF444450),
-        onSecondary = Color(0xFF2D2E39),
-        onSecondaryContainer = Color(0xFFE0E0EC),
+        primary = Color(0xFFD1FE17),
+        primaryDim = Color(0xFFAED500),
+        primaryContainer = Color(0xFF3C4D00),
+        onPrimary = Color(0xFF273500),
+        onPrimaryContainer = Color(0xFFD1FE17),
+        secondary = Color(0xFFC5C9B0),
+        secondaryDim = Color(0xFFAAAD96),
+        secondaryContainer = Color(0xFF454936),
+        onSecondary = Color(0xFF2E3221),
+        onSecondaryContainer = Color(0xFFE2E5CB),
         tertiary = Color(0xFF72DAA0),
         tertiaryDim = Color(0xFF5ABF88),
         tertiaryContainer = Color(0xFF005230),
